@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Menu lateral -->
+    <div class="menu-lateral-esquerdo">
+        <div class="logo">
+            <img src="imagem/logo-avp-color-removebg-preview.png" alt="logo da faculdade">
+            <p>Grupo Educacional<br>Aqui Você Pode</p>
+        </div>
+        <ul>
+            <li><a href="#" onclick="exibirTela('telaCadastroProfessor')">Cadastrar Professor</a></li>
+            <li><a href="#" onclick="exibirTela('telaCadastroAluno')">Cadastrar Aluno</a></li>
+            <li><a href="#" onclick="exibirTela('telaFeedback')">Feedback Avaliando a Disciplina</a></li>
+            <li><a href="#" onclick="abrirRelatorioFeedback()">Relatório do Feedback</a></li>
+            <li><a href="#" onclick="logout()">Sair</a></li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="main">
+        <h1>Perfil do Usuário</h1>
+        <p id="perfilUsuario">Bem-vindo, <span id="usuarioNome"></span>!</p>
+    </div>
+
+    <!-- Tela de Cadastro de Professor -->
+    <div id="telaCadastroProfessor" class="telaCadastro" style="display: none;">
+        <h2>Cadastrar Professor</h2>
+        <form onsubmit="cadastrarProfessor(event)">
+            <label for="nomeProfessor">Nome:</label>
+            <input type="text" id="nomeProfessor" required><br>
+            <label for="emailProfessor">Email:</label>
+            <input type="email" id="emailProfessor" required><br>
+            <label for="disciplinaProfessor">Disciplina:</label>
+            <input type="text" id="disciplinaProfessor" required><br>
+            <button type="submit">Cadastrar</button>
+            <button type="button" onclick="fecharTela('telaCadastroProfessor')">Cancelar</button>
+        </form>
+    </div>
+
+    <!-- Tela de Cadastro de Aluno -->
+    <div id="telaCadastroAluno" class="telaCadastro" style="display: none;">
+        <h2>Cadastrar Aluno</h2>
+        <form onsubmit="cadastrarAluno(event)">
+            <label for="nomeAluno">Nome:</label>
+            <input type="text" id="nomeAluno" required><br>
+            <label for="emailAluno">Email:</label>
+            <input type="email" id="emailAluno" required><br>
+            <label for="cursoAluno">Curso:</label>
+            <input type="text" id="cursoAluno" required><br>
+            <button type="submit">Cadastrar</button>
+            <button type="button" onclick="fecharTela('telaCadastroAluno')">Cancelar</button>
+        </form>
+    </div>
+
+    <!-- Tela de Feedback Avaliando a Disciplina -->
+    <div id="telaFeedback" class="telaCadastro" style="display: none;">
+        <h2>Feedback Avaliando a Disciplina</h2>
+        <form onsubmit="enviarFeedback(event)">
+            <label for="disciplinaFeedback">Disciplina:</label>
+            <input type="text" id="disciplinaFeedback" required><br><br>
+
+            <label for="avaliacaoFeedback">Avaliação:</label>
+            <select id="avaliacaoFeedback" required>
+                <option value="">Selecione</option>
+                <option value="Ruim">Ruim</option>
+                <option value="Bom">Bom</option>
+                <option value="Muito Bom">Muito Bom</option>
+                <option value="Ótimo">Ótimo</option>
+            </select><br><br>
+
+            <label for="comentarioFeedback">Comentário:</label>
+            <textarea id="comentarioFeedback" rows="4" placeholder="Digite seu comentário (opcional)"></textarea><br><br>
+
+            <button type="submit">Enviar Feedback</button>
+            <button type="button" onclick="fecharTela('telaFeedback')">Cancelar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
